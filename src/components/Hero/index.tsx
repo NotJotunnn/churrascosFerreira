@@ -29,6 +29,9 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
             autoPlay={true}
             loop={true}
             className="pointer-events-none md:w-[1100px] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)]"
+            muted
+            playsInline
+            disablePictureInPicture
           ></video>
         </div>
       </div>

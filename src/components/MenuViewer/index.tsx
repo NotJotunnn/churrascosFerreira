@@ -60,7 +60,7 @@ const MenuViewer = () => {
       >
         {/* Image */}
         <div className="lg:sticky lg:top-0 w-full lg:w-[40%] lg:h-full h-[150px] min-h-[150px] rounded-t-4xl lg:rounded-l-4xl lg:rounded-t-none">
-          <Image className="h-full w-auto object-cover" src={menus.find(menu => menu.name.toLowerCase() == currentPlan)?.backgroundImageThumb || menus[0].backgroundImageThumb} alt={`Thumb do cardápio ${currentPlan}`}/>
+          <Image className="h-full w-full object-cover" src={menus.find(menu => menu.name.toLowerCase() == currentPlan)?.backgroundImageThumb || menus[0].backgroundImageThumb} alt={`Thumb do cardápio ${currentPlan}`}/>
           <div className="absolute top-0 left-0 w-full h-[150px] bg-linear-to-t from-[#d9d9d9] to-transparent to-30% lg:hidden"></div>
         </div>
         {/* Image */}
