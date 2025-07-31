@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: #dedede;
+  --foreground: #171717;
+  --accent3: #cd9c73;
+  --accent: #930f00;
+  --accent2: #490600;
+  --accent2opaque: #490600ee;
+  --accent3: #cd9c73;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent3: var(--accent3);
+  --color-accent: var(--accent);
+  --color-accent2: var(--accent2);
+  --color-accent2opaque: var(--accent2opaque);
+  --color-accent3: var(--accent3);
+  --content: 1100px;
+
+  @keyframes vanish {
+    0% {
+      translate: 0 0dvh;
+      opacity: 1;
+    }
+    100% {
+      translate: 0 -20dvh;
+      opacity: 0;
+    }
+  }
+
+  @keyframes showUp2 {
+    0% {
+      translate: -20dvh;
+      opacity: 0;
+    }
+    100% {
+      translate: 0dvh;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      translate: 0 100vh;
+    }
+    100% {
+      translate: 0 0px;
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      translate: 0 0px;
+    }
+    100% {
+      translate: 0 100vh;
+    }
+  }
+
+  @keyframes showbackground {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes vanishbackground {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  /* --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono); */
+}
+
+html:has(.show) {
+  overflow-y: hidden;
+}
+
+html:has(.show) header {
+  position: fixed;
+}
+
+html:has(.show) body {
+  padding-top: 68px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+}
