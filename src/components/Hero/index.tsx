@@ -1,5 +1,7 @@
 "use client";
 
+import data, { dataType } from "@/store/data";
+import Link from "next/link";
 import { ReactNode, useEffect, useRef } from "react";
 
 type HeroProps = {
@@ -9,6 +11,7 @@ type HeroProps = {
 
 const Hero = ({ CTA = false, text }: HeroProps) => {
   const videoRef = useRef<null | HTMLVideoElement>(null);
+  const { socialLinks }: dataType = data;
 
   useEffect(() => {
     if (videoRef && videoRef.current) {
@@ -17,7 +20,7 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
       });
     }
   }, []);
-  
+
   return (
     <div
       className={`${
@@ -27,20 +30,26 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
       <div className="lg:max-w-content lg:w-content flex flex-col justify-center items-center gap-y-12 z-10 px-4">
         <h1 className="text-6xl font-bold text-white">{text}</h1>
         {CTA && (
-          <button className="bg-accent rounded-2xl py-2 px-[70px] text-white text-lg hover:bg-accent2 transition duration-400 cursor-pointer">
-            Veja mais
-          </button>
+          <Link
+            href={socialLinks.whatsapp}
+            rel="external"
+            target="_blank"
+          >
+            <button className="bg-accent rounded-2xl py-2 px-[70px] text-white text-lg hover:bg-accent2 transition duration-400 cursor-pointer">
+              Veja mais
+            </button>
+          </Link>
         )}
       </div>
 
       <div className="flex justify-center items-center w-full h-full absolute top-0 left-0 z-0">
         <div>
-          <div className="absolute top-0 w-[1100px] h-full bg-black opacity-50 backdrop-blur z-20"></div>
+          <div className="absolute top-0 left-1/2 translate-x-[-50%] w-[1100px] h-full bg-black opacity-50 backdrop-blur z-20"></div>
           <video
             src="/backgroundIntro.mp4"
             autoPlay={true}
             loop={true}
-            className="pointer-events-none md:w-[1100px] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)]"
+            className="pointer-events-none md:w-[1100px] h-screen shadow-[0_4px_15px_rgba(0,0,0,.5)]"
             muted
             playsInline
             disablePictureInPicture
