@@ -1,10 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import data, { dataType } from "@/store/data";
 import { BsClockFill } from "react-icons/bs";
+import { useEffect, useRef } from "react";
 
 const LinkTree = () => {
+  const videoRef = useRef<null | HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        videoRef?.current?.play();
+      });
+    }
+  }, []);
+
   const { availableTime, socialLinks }: dataType = data;
 
   return (
@@ -47,6 +60,10 @@ const LinkTree = () => {
         autoPlay={true}
         loop={true}
         className="absolute bottom-0 left-1/2 lg:left-0 pointer-events-none md:w-screen max-w-[unset] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)] brightness-[70%]"
+        muted
+        playsInline
+        disablePictureInPicture
+        ref={videoRef}
       ></video>
 
       <div className="absolute top-0 w-full h-full z-[-1] bg-accent3 inset-shadow-[0_4px_15px_rgba(0,0,0,.5)]">

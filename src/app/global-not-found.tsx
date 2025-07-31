@@ -7,8 +7,19 @@ import "./globals.css";
 import Link from "next/link";
 import { SidebarProvider } from "@/hooks/sidebar";
 import Sidebar from "@/components/Sidebar";
+import { useEffect, useRef } from "react";
 
 export default function GlobalNotFound() {
+  const videoRef = useRef<null | HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        videoRef?.current?.play();
+      });
+    }
+  }, []);
+
   return (
     <html lang="pt-br">
       <body className={`antialiased overflow-x-hidden`}>
@@ -35,6 +46,10 @@ export default function GlobalNotFound() {
               autoPlay={true}
               loop={true}
               className="pointer-events-none md:w-[1100px] max-w-[unset] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)]"
+              muted
+              playsInline
+              disablePictureInPicture
+              ref={videoRef}
             ></video>
             <div className="absolute top-0 w-full h-full bg-black opacity-50 backdrop-blur z-20"></div>
           </div>

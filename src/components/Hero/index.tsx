@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+"use client";
+
+import { ReactNode, useEffect, useRef } from "react";
 
 type HeroProps = {
   CTA?: boolean;
@@ -6,6 +8,16 @@ type HeroProps = {
 };
 
 const Hero = ({ CTA = false, text }: HeroProps) => {
+  const videoRef = useRef<null | HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        videoRef?.current?.play();
+      });
+    }
+  }, []);
+  
   return (
     <div
       className={`${
@@ -32,6 +44,7 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
             muted
             playsInline
             disablePictureInPicture
+            ref={videoRef}
           ></video>
         </div>
       </div>
