@@ -59,7 +59,7 @@ const LinkTree = () => {
         src="/backgroundIntro.mp4"
         autoPlay={true}
         loop={true}
-        className="absolute bottom-0 left-1/2 translate-x-[-50%] lg:left-0 pointer-events-none md:w-screen max-w-[unset] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)] brightness-[70%]"
+        className="absolute bottom-0 left-1/2 translate-x-[-50%] lg:translate-x-0 lg:left-0 pointer-events-none md:w-screen max-w-[unset] h-full shadow-[0_4px_15px_rgba(0,0,0,.5)] brightness-[70%]"
         muted
         playsInline
         disablePictureInPicture
