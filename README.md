@@ -1,4 +1,4 @@
-<p align="center"><img src="./public/assets/Logo.svg" width="90" /></p>
+<p align="center"><img src="./public/Logo.svg" width="90" /></p>
 
 # Portfolio Website
 
@@ -27,7 +27,7 @@
 
 
 <p align="center">
-  <img src="./public/assets/preview.png" width="100%">
+  <img src="./public/preview.jpeg" width="100%">
 </p>
 
 ## Demonstração
