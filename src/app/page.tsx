@@ -10,7 +10,7 @@ export default function Home() {
       <Hero
         text={
           <>
-            Churrasco <br /> para toda família!
+            Mais que um churrasco. <br />Uma experiência!
           </>
         }
         CTA={true}

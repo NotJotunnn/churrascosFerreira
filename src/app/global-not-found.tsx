@@ -1,27 +1,16 @@
-"use client"
-
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SubFooter from "@/components/SubFooter";
 import SuperHeader from "@/components/SuperHeader";
 
 import "./globals.css";
+
 import Link from "next/link";
+
 import { SidebarProvider } from "@/hooks/sidebar";
 import Sidebar from "@/components/Sidebar";
-import { useEffect, useRef } from "react";
 
 export default function GlobalNotFound() {
-  const videoRef = useRef<null | HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        videoRef?.current?.play();
-      });
-    }
-  }, []);
-
   return (
     <html lang="pt-br">
       <body className={`antialiased overflow-x-hidden`}>
@@ -51,7 +40,6 @@ export default function GlobalNotFound() {
               muted
               playsInline
               disablePictureInPicture
-              ref={videoRef}
             ></video>
             <div className="absolute top-0 w-full h-full bg-black opacity-50 backdrop-blur z-20"></div>
           </div>

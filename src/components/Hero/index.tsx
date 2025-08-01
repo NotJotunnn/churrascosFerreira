@@ -1,8 +1,6 @@
-"use client";
-
 import data, { dataType } from "@/store/data";
 import Link from "next/link";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
 
 type HeroProps = {
   CTA?: boolean;
@@ -10,17 +8,7 @@ type HeroProps = {
 };
 
 const Hero = ({ CTA = false, text }: HeroProps) => {
-  const videoRef = useRef<null | HTMLVideoElement>(null);
   const { socialLinks }: dataType = data;
-
-  useEffect(() => {
-    if (videoRef && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        videoRef?.current?.play();
-      });
-    }
-  }, []);
-
   return (
     <div
       className={`${
@@ -53,7 +41,6 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
             muted
             playsInline
             disablePictureInPicture
-            ref={videoRef}
           ></video>
         </div>
       </div>
