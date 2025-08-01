@@ -1,8 +1,6 @@
-"use client";
-
 import data, { dataType } from "@/store/data";
 import Link from "next/link";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
 
 type HeroProps = {
   CTA?: boolean;
@@ -10,17 +8,6 @@ type HeroProps = {
 };
 
 const Hero = ({ CTA = false, text }: HeroProps) => {
-  const ref = useRef<null | HTMLVideoElement>(null);
-
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      if (!ref || !ref.current) return;
-
-      ref.current.pause();
-      ref.current.play();
-    });
-  }, []);
-
   const { socialLinks }: dataType = data;
   return (
     <div
@@ -29,7 +16,7 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
       } max-h-[800px] overflow-hidden flex justify-center items-center text-center relative`}
     >
       <div className="lg:max-w-content lg:w-content flex flex-col justify-center items-center gap-y-12 z-10 px-4">
-        <h1 className="text-5xl font-bold text-white">{text}</h1>
+        <h1 className="text-4xl font-bold text-white">{text}</h1>
         {CTA && (
           <Link href={socialLinks.whatsapp} rel="external" target="_blank">
             <button className="bg-accent rounded-2xl py-2 px-[70px] text-white text-lg hover:bg-accent2 transition duration-400 cursor-pointer">
@@ -50,7 +37,6 @@ const Hero = ({ CTA = false, text }: HeroProps) => {
             muted
             playsInline
             disablePictureInPicture
-            ref={ref}
           ></video>
         </div>
       </div>
